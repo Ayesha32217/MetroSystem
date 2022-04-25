@@ -8,8 +8,6 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Timestamp;
 import java.time.Instant;
 
-
-
 public class SwipeInDaoImpl implements SwipeInDao{
 	private Connection connection;
 	private UsersDaoImpl usersDao;
@@ -35,10 +33,8 @@ public class SwipeInDaoImpl implements SwipeInDao{
 				preparedStatement.setInt(1, metroCardId);
 				preparedStatement.setInt(2, sourceStationId);
 				preparedStatement.setTimestamp(3, current);
-				int i;
 				try {
-					i = preparedStatement.executeUpdate();
-					System.out.println(i+balance);
+					preparedStatement.executeUpdate();
 					return true;
 				} 
 				catch(SQLIntegrityConstraintViolationException e) {
